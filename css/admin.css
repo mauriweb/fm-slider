@@ -1,0 +1,46 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 14-Jan-2015, 20:18:27
+    Author     : franmadj
+*/
+
+.img_cont{
+    width: 80%;
+    height: 100px;
+    padding: 5px;
+    border: solid thin #ccc;
+    border-radius: 5px;
+    margin: 5px;
+}
+.img_cont .acciones{
+    height: 100px;
+    width: 50%;
+    float: left;
+}
+.img_cont .acciones a{
+    display: block;
+    text-indent: -9999px;
+    background: url('../images/delImage.jpg') no-repeat center center;
+    background-size: cover;
+    width: 50px;
+    height: 50px;
+    margin-top:8%; 
+    margin-left: 10px;
+}
+
+.img_cont img{
+    height: 100px;
+    float: left;
+    margin-left: 5px;
+    float:right;
+}
+
+.short-imgs{
+    cursor:move;
+}
+
+

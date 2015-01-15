@@ -1,0 +1,104 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 15-Jan-2015, 00:21:06
+    Author     : franmadj
+*/
+div.fm-slider-wrap div#fm-visor-slider ul.fmslider{
+    padding:0px;
+    margin: 0px;
+    
+}
+.fmslider li img{
+	width:100%;
+}
+.fm-slider-wrap{
+	overflow:hidden;
+	border:solid thin black;
+}
+#fm-visor-slider{
+    overflow:hidden;
+    margin-bottom: 5px;
+    height: 100%;
+}
+.fmslider, .fmslider li{
+	margin:0;
+        list-style: none
+}
+
+
+/*CONTROLS*/
+.fm-controls-auto{
+    width:35px;
+    float: right;
+}
+.fm-controls-auto-in{
+    display: inline-block;
+}
+div.fm-controls-auto a.fm-start:hover, 
+
+div.fm-controls-auto div.fm-controls-auto-in a.fm-start.active{
+    background-position: -86px 0;
+}
+div.fm-controls-auto div.fm-controls-auto-in a.fm-play {
+    background: url("images/controls.png") no-repeat scroll -86px -11px rgba(0, 0, 0, 0);
+    display: block;
+    height: 11px;
+    margin: 0 3px;
+    outline: 0 none;
+    text-indent: -9999px;
+    width: 10px;
+}
+
+div.fm-controls-auto div.fm-controls-auto-in a.fm-pause {
+    background: url("images/controls.png") no-repeat scroll -86px -44px rgba(0, 0, 0, 0);
+    display: block;
+    height: 11px;
+    margin: 0 3px;
+    outline: 0 none;
+    text-indent: -9999px;
+    width: 9px;
+}
+div.fm-pager{
+    float:left;
+}
+div.bx-pager-in{
+    display: inline-block;
+    width: 15px;
+/*    padding: 0 5px;*/
+}
+div.bx-pager-in  a {
+    background: none repeat scroll 0 0 #666;
+    border-radius: 5px;
+    display: block;
+    height: 10px;
+    margin: 0 5px;
+    outline: 0 none;
+    text-indent: -9999px;
+    width: 10px;
+}
+.fm-controls-direction{
+    position:relative;
+}
+.fm-controls-direction a {
+    height: 32px;
+
+    outline: 0 none;
+    position: absolute;
+    text-indent: -9999px;
+
+    width: 32px;
+    z-index: 9999;
+}
+.fm-prev {
+    background: url("images/controls.png") no-repeat scroll 0 -32px rgba(0, 0, 0, 0);
+    left: 10px;
+}
+.fm-next {
+    background: url("images/controls.png") no-repeat scroll -43px -32px rgba(0, 0, 0, 0);
+    right: 10px;
+}
+
