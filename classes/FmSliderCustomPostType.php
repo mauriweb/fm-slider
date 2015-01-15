@@ -1,10 +1,5 @@
 <?php
 
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 
 /**
  * Description of FmSliderCustomPostType
@@ -43,6 +38,11 @@ class FmSliderCustomPostType {
         array()
         );
     }
+    
+    /**
+	 * Create fm-slider post type
+	 * @since 1.0.0
+	 */
             
     public function create_post_type(){
         $labels = array(
@@ -66,31 +66,18 @@ class FmSliderCustomPostType {
                     'labels'=>$labels,
                     'public'=>true,
                     'has_archive'=>true,
-//                    'capability_type'      => 'fm_slider',
-//                    'map_meta_cap'=>true,
-//				'capabilities'         => array(
-//                                    'create_posts' => 'create_fm_sliders',
-//					'edit_post'              => 'edit_fm_slider',
-//					'read_post'              => 'read_slider',
-//					'delete_post'            => 'delete_fm_slider',
-//					'edit_posts'             => 'edit_fm_sliders',
-//					'edit_others_posts'      => 'edit_others_fm_sliders',
-//					'publish_posts'          => 'publish_fm_sliders',
-//					'read_private_posts'     => 'read_private_fm_sliders',
-//
-//					'delete_posts'           => 'delete_fm_sliders',
-//					'delete_private_posts'   => 'delete_private_fm_sliders',
-//					'delete_published_posts' => 'delete_published_fm_sliders',
-//					'delete_others_posts'    => 'delete_others_fm_sliders',
-//					'edit_private_posts'     => 'edit_private_fm_sliders',
-//					'edit_published_posts'   => 'edit_published_fm_sliders',
-//				),
                     'supports'             => array('title'),
                     'register_meta_box_cb' => array($this, 'registerMetaBoxes')
                     )); 
         
         //dame($GLOBALS['wp_post_types']['fm_slider']->cap);
     }
+    
+    /**
+	 * Get and prepare data from post slider slides
+         * @param int $post_id
+	 * @since 1.0.0
+	 */
     
     public function save_fm_slider_slides($post_id){
         
@@ -108,6 +95,12 @@ class FmSliderCustomPostType {
 
     }
     
+    /**
+	 * Get and prepare data from post slider settiengs
+     * * @param int $post_id
+	 * @since 1.0.0
+	 */
+    
     public function save_fm_slider_settings($post_id){
         
         
@@ -119,7 +112,7 @@ class FmSliderCustomPostType {
             return $post_id;
         
         
-        if ( isset( $_POST['fm'] ) ) { //dame($post_id,1);
+        if ( isset( $_POST['fm'] ) ) { 
             FmSliderSettings::save_settings($post_id, $_POST['fm'] );
         }
 
@@ -132,19 +125,6 @@ class FmSliderCustomPostType {
 	 * @since 1.0.0
 	 */
 	function registerMetaBoxes(){
-//		add_meta_box(
-//			'information',
-//			__('Information', 'slideshow-plugin'),
-//			array($this, 'informationMetaBox'),
-//			$this->post_type,
-//			'normal',
-//			'high'
-//		);
-
-
-
-
-
 		add_meta_box(
 			'settingsFmSlider',
 			__('Slider Settings', 'slideshow-plugin'),
@@ -172,10 +152,7 @@ class FmSliderCustomPostType {
         
         
         /**
-	 * Shows slides currently in slideshow
-	 *
-	 * TODO Tidy up, it's probably best to move all to 'slides.php'
-	 *
+	 * Display settiengs meta box
 	 * @since 1.0.0
 	 */
 	function slider_html_settings_meta_box(){ 
@@ -189,6 +166,10 @@ class FmSliderCustomPostType {
                 
 	}
         
+        /**
+	 * Display slides meta box
+	 * @since 1.0.0
+	 */
         function slider_html_slides_meta_box(){ 
             global $post;
             $slides=FmSliderSettings::get_slides($post->ID);

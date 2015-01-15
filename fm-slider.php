@@ -1,11 +1,11 @@
 <?php
 /*
 Plugin Name: Fm Slider
-Plugin URI: http://fm.com/
+Plugin URI: https://github.com/mauriweb/fm-slider
 Description: Slider Show for images
 Version: 1.0.0
 Author: Francisco Mauri
-Author URI: http://francisco
+Author URI: https://github.com/mauriweb/fm-slider
 License: GPLv2 or later
 Text Domain: fm-slider
 */
@@ -24,14 +24,10 @@ define( 'FMSLIDER_PLUGIN_DIR', plugin_dir_path( __FILE__ ) );
 class fm_slider{
     
     function __construct() {
-        //add_action('init', array($this, 'create_fm_slider_post_type'));
         require_once (FMSLIDER_PLUGIN_DIR.'/classes/FmSliderSettings.php');
         require_once (FMSLIDER_PLUGIN_DIR.'/classes/FmSliderCustomPostType.php');
         
         if(is_admin()){
-            
-            //add_action('admin_init', array($this, 'set_options'));
-            //add_action('admin_menu', array($this, 'set_menu_options'));
             add_action('wp_ajax_update_slides_order', array($this, 'update_slides_order'));
         }else{
             
@@ -40,23 +36,10 @@ class fm_slider{
             
             
         }
-        
-        
-        
-//        function __autoload($class_name) 
-//        {
-//            dame( $class_name);
-//        }
+
     }
     
 
-    
-    public function  update_slides_order(){
-        echo 'dd';
-        dame($_REQUEST,1);
-        die();
-        
-    }
 
     public function  fm_slider_scripts(){
         wp_enqueue_script('jquery-ui',
@@ -64,17 +47,12 @@ class fm_slider{
                 array( 'jquery' ),
                 FMSLIDER_VERSION,
                 'all' );
-        
 
-        
         wp_enqueue_script('fm-slider',
                 FMSLIDER_PLUGIN_URL . 'js/fm-slider.js',
                 array( 'jquery' ),
                 FMSLIDER_VERSION,
                 'all' );
-        
-
-
 
         wp_enqueue_style('fm-slider',
                 FMSLIDER_PLUGIN_URL . 'css/fm-slider.css'
