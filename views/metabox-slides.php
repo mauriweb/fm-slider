@@ -61,7 +61,7 @@ $selected='selected="selected"';
                     <a href="#" class="del_one_img">Eliminar</a>
                 </div>
                 
-                <img width="200" src="'.$slide['src'].'"> 
+                <img style="max-width:200px; max-height:100px;" src="'.$slide['src'].'"> 
                 <input type="hidden" value="'.$slide['src'].'" name="slides[src_'.$i.']"> 
                 <input type="hidden" value="'.$slide['title'].'" name="slides[title_'.$i.']"> 
                 <input class="slide_pos" type="hidden" value="'.$slide['position'].'" name="slides[position_'.$i.']"> 

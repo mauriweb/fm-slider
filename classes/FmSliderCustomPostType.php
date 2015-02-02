@@ -16,6 +16,23 @@ class FmSliderCustomPostType {
         add_action('admin_enqueue_scripts', array($this, 'admin_enqueue_styles'));
         add_action('save_post', array ($this, 'save_fm_slider_settings'));
         add_action('save_post', array ($this, 'save_fm_slider_slides'));
+        
+        add_filter('manage_edit-fm_slider_columns',          array($this, 'add_columns_head_fm_slider'));
+        add_action('manage_fm_slider_posts_custom_column',   array($this, 'add_columns_content_fm_slider'), 10, 2);
+    }
+    
+    //ADD COLUMNS TEAM MEMBER
+    function add_columns_head_fm_slider($column ) {
+        $column['Shodtcode'] = 'Short Code';
+        
+        return $column;
+    }
+    function add_columns_content_fm_slider($column, $post_id) {
+        if($column=='Shodtcode'){
+            echo '[fm_slider_shortcode id="'.$post_id.'" ]';
+        }
+        
+
     }
     
     public function  admin_enqueue_scripts(){
